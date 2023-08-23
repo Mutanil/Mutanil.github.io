@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2023-08-22T20:32:15.265Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>磁力链接爬取器</title>
+    <link href="http://example.com/2023/08/23/%E7%A3%81%E5%8A%9B%E9%93%BE%E6%8E%A5%E7%88%AC%E5%8F%96%E5%99%A8/"/>
+    <id>http://example.com/2023/08/23/%E7%A3%81%E5%8A%9B%E9%93%BE%E6%8E%A5%E7%88%AC%E5%8F%96%E5%99%A8/</id>
+    <published>2023-08-22T20:22:41.370Z</published>
+    <updated>2023-08-22T20:32:15.265Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是一个磁力链接爬取器</p><span id="more"></span><p>这是一个磁力链接爬取器其中实现了将所提供的链接中的磁力链接提取出来并且打印进所命名的文本中，磁力链接的正则表达式适用于大部分磁力链接，但是如要使用成功，需要确定提供的网页的源代码中包含有磁力链接。</p><p>需要使用的库</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install requests</span><br></pre></td></tr></table></figure><p>具体代码如下</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取当前文件所在目录</span></span><br><span class="line">current_directory = os.path.dirname(os.path.abspath(__file__))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 询问用户输入需要读取的网页链接和记事本名称</span></span><br><span class="line">webpage_url = <span class="built_in">input</span>(<span class="string">&quot;请输入需要读取的网页链接：&quot;</span>)</span><br><span class="line">output_filename = <span class="built_in">input</span>(<span class="string">&quot;请输入记事本名称：&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 构造记事本的完整路径</span></span><br><span class="line">output_filepath = os.path.join(current_directory, output_filename)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取网页源代码</span></span><br><span class="line">response = requests.get(webpage_url)</span><br><span class="line">webpage_source_code = response.text</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用正则表达式匹配magnet链接</span></span><br><span class="line">pattern = <span class="string">r&#x27;magnet:\?xt=urn:btih:[a-zA-Z0-9]*&#x27;</span></span><br><span class="line">magnet_links = re.findall(pattern, webpage_source_code)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将链接写入记事本</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(output_filepath, <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">    <span class="keyword">for</span> link <span class="keyword">in</span> magnet_links:</span><br><span class="line">        file.write(link + <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Magnet链接已写入记事本：<span class="subst">&#123;output_filepath&#125;</span>&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;这是一个磁力链接爬取器&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="Python" scheme="http://example.com/tags/Python/"/>
+    
+    <category term="代码" scheme="http://example.com/tags/%E4%BB%A3%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第一篇文章</title>
+    <link href="http://example.com/2023/08/23/First/"/>
+    <id>http://example.com/2023/08/23/First/</id>
+    <published>2023-08-22T17:29:04.000Z</published>
+    <updated>2023-08-22T17:31:26.108Z</updated>
+    
+    <content type="html"><![CDATA[<p>纪念一下，这是我的博客的第一篇文章，我将会在该博客进行文章分享和创作。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;纪念一下，这是我的博客的第一篇文章，我将会在该博客进行文章分享和创作。&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+    <category term="语录" scheme="http://example.com/tags/%E8%AF%AD%E5%BD%95/"/>
+    
+  </entry>
+  
+</feed>
