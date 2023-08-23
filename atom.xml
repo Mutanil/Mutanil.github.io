@@ -1,20 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>Mutan&#39;s Blog</title>
   
   
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-08-22T20:32:15.265Z</updated>
+  <updated>2023-08-23T08:27:52.001Z</updated>
   <id>http://example.com/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>Mutan</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Github Page + Hexo 搭建个人博客</title>
+    <link href="http://example.com/2023/08/23/Github%E6%90%AD%E5%BB%BAHexo/"/>
+    <id>http://example.com/2023/08/23/Github%E6%90%AD%E5%BB%BAHexo/</id>
+    <published>2023-08-23T06:41:38.302Z</published>
+    <updated>2023-08-23T08:27:52.001Z</updated>
+    
+    <content type="html"><![CDATA[<p>从小就觉得能有一个属于自己的博客是一件很酷的事情，然而现在市面上大多为需要付费以及很难自定义的博客，因此想要有高自定义的博客这一想法也油然而生，本篇介绍了如何使用Hexo + GithubPages的方式搭建一个属于自己的博客。</p><p>准备工具：  <a href="https://nodejs.org/en/download">Node.js</a><br>            <a href="https://git-scm.com/downloads">Git</a></p><p>首先先用Github创建一个命名为“username.github.io”的仓库。</p><p>然后在终端检查是否将npm成功配置完成<br><img src="/images/cmd&npm.png"></p><p>创建一个存放Hexo的文件夹，进入文件根目录，鼠标右键选择<strong>git bash here</strong></p><p>输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure><p>此时我们的本地博客基本就配置好了<br>接着我们在配置连接到github</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;github 用户名&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;github 注册邮箱&quot;</span></span><br></pre></td></tr></table></figure><p>然后就是生成密钥</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成 ssh 密钥</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;github 注册邮箱&quot;</span></span><br></pre></td></tr></table></figure><p>将密钥配置进我们的Github，点击Github头像下的Setting，然后选择SSH进入添加刚才生成的密钥。<br><img src="/images/v2-fa367eb2c2c4749be656c34d782d6619_r.png"><br>好了，接着继续用Git输入一键部署的命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><p>随后点击_config.yml<br>找到最下方输入:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@github.com:Mutanil/Mutanil.github.io.git</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure><p>接着就是最基本的上传博客配置进Github了</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><p>一些常见报错：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ERROR Plugin load failed: hexo-prism-plugin</span><br></pre></td></tr></table></figure><p>解决方法：<br>在_config.yml的最下方输入：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">prism_plugin:</span><br><span class="line">  mode: <span class="string">&#x27;preprocess&#x27;</span> <span class="comment"># realtime/preprocess</span></span><br><span class="line">  theme: <span class="string">&#x27;default&#x27;</span></span><br><span class="line">  line_number: <span class="literal">false</span> <span class="comment"># default false</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;从小就觉得能有一个属于自己的博客是一件很酷的事情，然而现在市面上大多为需要付费以及很难自定义的博客，因此想要有高自定义的博客这一想法也油然而生，本篇介绍了如何使用Hexo + GithubPages的方式搭建一个属于自己的博客。&lt;/p&gt;
+&lt;p&gt;准备工具：  &lt;a href=</summary>
+      
+    
+    
+    
+    
+    <category term="Hexo" scheme="http://example.com/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>磁力链接爬取器</title>
